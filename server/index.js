@@ -4,8 +4,6 @@ const http = require("http");
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require("./users");
 
-const router = require("./router");
-
 const PORT = process.env.PORT || 5000;
 
 const app = express();
@@ -54,6 +52,6 @@ io.on("connection", (socket) => {
   });
 });
 
-app.use(router);
+app.use(express.static("public"));
 
 server.listen(PORT, () => console.log(`Server has started on port ${PORT}`));
